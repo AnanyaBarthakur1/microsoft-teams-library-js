@@ -2868,7 +2868,7 @@
   integrity sha512-iKc5L036hc/wu13DX5kGf//3/WqTAErAPTyYKG6zT3vG070xXaaP7PInODznfyZduhiOvavmrRlQb34ajeDTUA==
 
 "@microsoft/teams-js@file:packages/teams-js":
-  version "2.0.0"
+  version "2.1.0"
   dependencies:
     debug "4.3.3"
 
@@ -10606,7 +10606,7 @@ promzard@^0.3.0:
   dependencies:
     read "1"
 
-prop-types@^15.5.8, prop-types@^15.6.2:
+prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.2:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -10807,6 +10807,14 @@ react-fela@^10.6.1:
     fela-bindings "^10.8.2"
     fela-dom "^10.8.2"
     prop-types "^15.5.8"
+
+react-google-login@^5.2.2:
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/react-google-login/-/react-google-login-5.2.2.tgz#a20b46440c6c1610175ef75baf427118ff0e9859"
+  integrity sha512-JUngfvaSMcOuV0lFff7+SzJ2qviuNMQdqlsDJkUM145xkGPVIfqWXq9Ui+2Dr6jdJWH5KYdynz9+4CzKjI5u6g==
+  dependencies:
+    "@types/react" "*"
+    prop-types "^15.6.0"
 
 react-is@^16.13.1, react-is@^16.6.3, react-is@^16.8.1, react-is@^16.9.0:
   version "16.13.1"

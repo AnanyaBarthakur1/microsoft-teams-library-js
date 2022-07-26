@@ -1,6 +1,7 @@
-import { Text, Title3 } from '@fluentui/react-components';
+import { Button, Text, Title3 } from '@fluentui/react-components';
 import { AuthProvider, AuthProviderCallback, Client, Options } from '@microsoft/microsoft-graph-client';
 import { Calendar, Message, User } from '@microsoft/microsoft-graph-types';
+import { authentication } from '@microsoft/teams-js';
 import React from 'react';
 
 import { CalendarCapability } from './Calendar';
@@ -47,6 +48,17 @@ export const ProfileContent: React.FC<ProfileContentProps> = (props: ProfileCont
       setEmails(emails);
     })();
   }, [accessToken, setUserInfo, setCalendar, setEmails]);
+  // handle google sign in
+  const [gAccessToken, setGAccessToken] = React.useState<string>();
+
+  const gHandle = React.useCallback(async () => {
+    const currURL = window.location.href;
+    const gAccessToken = await authentication.authenticate({
+      url: new URL('/?auth=2', currURL).toString(),
+    });
+    setGAccessToken(gAccessToken);
+  }, [setGAccessToken]);
+
   return (
     <>
       {!userInfo ? <p>loading user info...</p> : <MainPage userInfo={userInfo} />}
@@ -82,6 +94,11 @@ export const ProfileContent: React.FC<ProfileContentProps> = (props: ProfileCont
               <CalendarCapability />
               {/* Pages Capability only has placeholder parameters */}
               <PagesCapability />
+              <Text as="p">
+                <Button appearance="primary" onClick={() => gHandle()}>
+                  Google Sign in {gAccessToken}
+                </Button>
+              </Text>
             </div>
           </div>
         </>
